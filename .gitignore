@@ -1,0 +1,6 @@
+*.geany
+*~
+*.xcf
+bin/
+build/
+
