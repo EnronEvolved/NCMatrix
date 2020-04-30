@@ -13,8 +13,8 @@ using namespace std;
 // Groundwork to allow compile-time definition of the pool size?
 // Maybe we should make this a runtime thing...
 
-const int STREAM_MIN_LENGTH 8
-const int STREAM_MAX_LENGTH 16
+const int STREAM_MIN_LENGTH = 8;
+const int STREAM_MAX_LENGTH = 16;
 
 class PlanePool {
 	public:

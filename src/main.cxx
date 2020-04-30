@@ -23,15 +23,15 @@
 
 using namespace std;
 
-const double PROB_SPAWN 0.1
-const int REST_LOWER 750 /*550*/
-const int REST_UPPER 1000 /*750*/
-const int MIN_SPEED 15
-const int MAX_SPEED 75
+const double PROB_SPAWN = 0.1;
+const int REST_LOWER = 750; /*550*/
+const int REST_UPPER = 1000; /*750*/
+const int MIN_SPEED = 15;
+const int MAX_SPEED = 75;
 
-const int MAXWAIT_SEC 0
-const int MAXWAIT_NSEC  007500000
-const int ONE_BN_NSEC  1000000000
+const int MAXWAIT_SEC  =          0;
+const int MAXWAIT_NSEC =  007500000;
+const int ONE_BN_NSEC  = 1000000000;
 
 int main(int argc, char **argv)
 {
