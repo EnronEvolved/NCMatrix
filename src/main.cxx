@@ -12,6 +12,7 @@
  */
 
 #include <clocale>
+#include <cargp>
 //#include <chrono>
 
 #include <notcurses/notcurses.h>
