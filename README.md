@@ -4,7 +4,7 @@ NCMatrix is a [clone/revamp/cheap imitation] of the novelty terminal program [CM
 
 This program is currently under development, and has not seen widespread testing (which is very welcome).
 
-![ncmatrix-demo](/home/william/Programming/C++/NCMatrix/ncmatrix-demo.gif)
+![ncmatrix-demo](./ncmatrix-demo.gif)
 
 ## Requirements:
 
