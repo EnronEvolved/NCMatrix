@@ -27,7 +27,7 @@ endif()
 # ^ Shameless notcurses copypasta
 
 # Build-dependent compiler definitions:
-add_compile_definitions(NCMATRIX_VERSION "ncmatrix version ${CMAKE_PROJECT_VERSION}")
+add_compile_definitions(NCMATRIX_VERSION="ncmatrix version ${CMAKE_PROJECT_VERSION}")
 
 # Getting notcurses
 add_library(libnotcurses SHARED IMPORTED)
