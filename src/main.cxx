@@ -22,22 +22,42 @@
 #include "planepool.hxx"
 #include "ncm_utils.hxx"
 
+#ifndef NCMATRIX_VERSION
+#define NCMATRIX_VERSION "undefined NCMatrix version - did you build this properly?"
+#endif
+
 using namespace std;
 
+// argp stuff
+const char *argp_program_version = NCMATRIX_VERSION;
+// should defined in the build process ----^
+const struct argp_option ncm_options[] = {};
+const char args_doc[] = "";
+const char doc[] = "";
+
+
+struct argp argument_parser = {ncm_options, };   
+
+// Offerings to RNGsus
 const double PROB_SPAWN = 0.1;
 const int REST_LOWER = 750; /*550*/
 const int REST_UPPER = 1000; /*750*/
 const int MIN_SPEED = 15;
 const int MAX_SPEED = 75;
 
+// timing constants
 const int MAXWAIT_SEC  =          0;
 const int MAXWAIT_NSEC =  007500000;
 const int ONE_BN_NSEC  = 1000000000;
 
+
 int main(int argc, char **argv)
 {
 	// Initialisation
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, ""); // notcurses wants this
+	
+	// Argument parsing
+	
 	
 	// Opening files
 	FILE* fp = fopen("/dev/tty", "r+");
