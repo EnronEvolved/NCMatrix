@@ -12,7 +12,6 @@
  */
 
 #include <clocale>
-#include <argp.h>
 //#include <chrono>
 
 #include <notcurses/notcurses.h>
@@ -21,22 +20,9 @@
 
 #include "planepool.hxx"
 #include "ncm_utils.hxx"
-
-#ifndef NCMATRIX_VERSION
-#define NCMATRIX_VERSION "undefined NCMatrix version - did you build this properly?"
-#endif
+#include "ncm_setup.hxx"
 
 using namespace std;
-
-// argp stuff
-const char *argp_program_version = NCMATRIX_VERSION;
-// should defined in the build process ----^
-const struct argp_option ncm_options[] = {};
-const char args_doc[] = "";
-const char doc[] = "";
-
-
-struct argp argument_parser = {ncm_options, };   
 
 // Offerings to RNGsus
 const double PROB_SPAWN = 0.1;
@@ -57,7 +43,7 @@ int main(int argc, char **argv)
 	setlocale(LC_ALL, ""); // notcurses wants this
 	
 	// Argument parsing
-	
+	ncmatrix_state program_state = ncm_argparse(argc, argv);
 	
 	// Opening files
 	FILE* fp = fopen("/dev/tty", "r+");

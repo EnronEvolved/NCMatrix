@@ -18,16 +18,18 @@ if(NOT TARGET uninstall)
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 endif()
 
-# Makefile generation
+# Setting flags
 if(CMAKE_BUILD_TYPE STREQUAL debug)
   set(DEBUG_OPTIONS -g -O0)
 else()
   set(DEBUG_OPTIONS -O2)
 endif()
 # ^ Shameless notcurses copypasta
+set(CMAKE_EXTRA_CXX_FLAGS "-fpermissive")
 
-# Build-dependent compiler definitions:
+# Compiler configuration:
 add_compile_definitions(NCMATRIX_VERSION="ncmatrix version ${CMAKE_PROJECT_VERSION}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${CMAKE_EXTRA_CXX_FLAGS}")
 
 # Getting notcurses
 add_library(libnotcurses SHARED IMPORTED)
@@ -35,7 +37,7 @@ set_target_properties(libnotcurses PROPERTIES
 	IMPORTED_LOCATION "/usr/local/lib")
 
 # Executable targets
-add_executable(ncmatrix ./src/main.cxx ./src/planepool.cxx ./src/planepoolelement.cxx ./src/ncm_utils.cxx)
+add_executable(ncmatrix ./src/main.cxx ./src/planepool.cxx ./src/planepoolelement.cxx ./src/ncm_utils.cxx ./src/ncm_setup.cxx)
 target_link_libraries(ncmatrix notcurses)
 set_target_properties(ncmatrix PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/")
