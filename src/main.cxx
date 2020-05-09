@@ -43,13 +43,7 @@ int main(int argc, char **argv)
 	FILE* rfp = NULL;
 	
 	// setting notcurses_options
-	notcurses_options opts;
-	opts.termtype = NULL;
-	opts.inhibit_alternate_screen = false;
-	opts.retain_cursor = false;
-	opts.suppress_banner = true;
-	opts.no_quit_sighandlers = false;
-	opts.no_winch_sighandler = false;
+	notcurses_options opts{};
 	opts.renderfp = rfp;
 	
 	// Initialising notcurses
