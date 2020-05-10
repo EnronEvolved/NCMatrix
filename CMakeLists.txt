@@ -19,19 +19,18 @@ if(NOT TARGET uninstall)
 endif()
 
 # Makefile generation
-if(CMAKE_BUILD_TYPE STREQUAL Debug)
-  set(DEBUG_OPTIONS -g -O0)
-else()
-  set(DEBUG_OPTIONS -O2)
-endif()
+string(APPEND CMAKE_C_FLAGS_DEBUG " -O0")
+string(APPEND CMAKE_CXX_FLAGS_DEBUG " -O0")
 # ^ Shameless notcurses copypasta
+
+find_package(notcurses 1.3.4 REQUIRED)
 
 add_library(libnotcurses SHARED IMPORTED)
 set_target_properties(libnotcurses PROPERTIES
 	IMPORTED_LOCATION "/usr/local/lib")
 
 add_executable(ncmatrix ./src/main.cxx ./src/planepool.cxx ./src/planepoolelement.cxx ./src/ncm_utils.cxx)
-target_link_libraries(ncmatrix notcurses)
+target_link_libraries(ncmatrix ${notcurses_LIBRARIES})
 set_target_properties(ncmatrix PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/")
 
